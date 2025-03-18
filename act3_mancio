@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calorie Recommendation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color:DodgerBlue
+            
+        }
+        .container {
+            max-width: 400px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 2px 12px rgba(0, 0, 0, 0.2);
+            background: violet;
+        }
+        input, select, button {
+            margin: 10px 0;
+            padding: 10px;
+            background: tomato;
+            width: 90%;
+        }
+        input[name="weight"] {
+            height: 20px;
+            font-size:15px;
+        }
+        label {
+            font-size: 18px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 10px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Calorie Recommendation</h2>
+        <form action="" method="post">
+            <label for="weight">Enter your weight (kg):</label>
+            <input type="number" step="0.1" name="weight" required>
+            
+            <label for="lifestyle">Select your lifestyle:</label>
+            <select name="lifestyle" required>
+                <option value="A">Active</option>
+                <option value="S">Sedentary</option>
+            </select>
+            
+            <button type="submit" name="calculate">Calculate</button>
+        </form>
+
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['calculate']) {
+            $weight = floatval($_POST['weight']);
+            $lifestyle = $_POST['lifestyle'];
+            
+            if ($lifestyle == 'A') {
+                $calories = $weight * 15; // Active lifestyle
+            } else {
+                $calories = $weight * 13; // Sedentary lifestyle
+            }
+            
+            echo "<div class='result'>Recommended Daily Calories: <strong>$calories kcal</strong></div>
+        
+    </div>
+</body>
+</html>
